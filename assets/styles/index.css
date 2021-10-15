@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body {
+    margin: 0;
+    padding: 5vh 15vw;
+    background-color: #f3f3f3;
+}
+header h1 {
+    margin: 0;
+}
+main {
+    margin: 50px 0 0 0;
+    height: 50vh;
+}
+textarea {
+    width: 100%;
+    resize: none;
+    padding: 20px;
+    border: 1px solid #4169e185;
+    height: 100%;
+}
+.param-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.param-box div +  div {
+    margin-left: 40px;
+}
+.param-box div label {
+    font-weight: 600;
+}
+input[type=number] {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #4169e185;
+}
+.btn-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+button {
+    padding: 12px 17px;
+    border: 1px solid #1d1d1d1d;
+}
+button.dupli {
+    background-color: #4169e1;
+    color: #fff;
+    cursor: pointer;
+}
+button.red {
+    background-color: yellow;
+}
+button + button {
+    margin-left: 10px;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+    display: none;
+    transition: all 150ms ease;
+}
+
+.alert {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #ff5100;
+    color: #fff;
+    padding: 30px 20px 20px 20px;
+    transform: translateX(125%);
+    transform-origin: right;
+    transition: transform 900ms cubic-bezier(0, 0.9, 0.07, 1);
+    width: 50%;
+    border-radius: 2px;
+}
+.alert.active {
+    transform: translateX(0)
+}
+.alert button.close-alert {
+    position: absolute;
+    top: 7%;
+    right: 3%;
+    padding: 5px 10px;
+    border: none;
+    background-color: #000000ea;
+    color: #fff;
+}
+.alert.green {
+    background-color: #4169e1;
+}
+
+@media (max-width: 620px) {
+    body {
+        padding: 5vh 9vw;
+    }
+    .param-box {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .param-box div {
+        margin: 10px 0;
+    }
+    .param-box div +  div {
+        margin-left: 0;
+    }
+    .alert {
+        width: 85%;
+    }
+}

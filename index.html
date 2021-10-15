@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/assets/js/alpine.min.js" defer></script>
+    <script src="/assets/js/index.js"></script>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="stylesheet" href="/assets/styles/index.css"/>
+    <title>Dupli</title>
+</head>
+<body>
+    <header>
+        <h1>Dupli</h1>
+    </header>
+    <main x-data="main">
+        <textarea id="texte" placeholder="Texte &agrave; dupliquer" @keyup='setTexte'></textarea>
+        <div class="param-box">
+            <div>
+                <input id="nbr" type="number" min="2" max="1000" placeholder="Nombre de duplications" @change='setNbr'/>
+            </div>
+            <div>
+                <input type="checkbox" id="wrap-check" @change="setLine"/>
+                <label for="wrap-check">Retour &agrave; la ligne</label>
+            </div>
+        </div>
+        <div class="btn-box">
+            <button @click="reset">Effacer</button>
+            <button class="dupli" @click="dupli">Dupliquer</button>
+        </div>
+    </main>
+    <div class="loading">
+        <div class="container"></div>
+    </div>
+    <div class="alert">
+        <div class="display"></div>
+        <button class="close-alert" onclick="closeAlert()">x</button>
+    </div>
+</body>
+<script>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/serviceWorker.js', { scope: '/' }).then(reg => {
+            console.log("Registered")
+        }).catch(err => {
+            console.error(err)
+        })
+    }
+</script>
+</html>

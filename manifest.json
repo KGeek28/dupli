@@ -1,0 +1,16 @@
+{
+    "name": "Dupli - Outil de duplication de texte",
+    "short_name": "Dupli",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "description": "Outil qui permet de dupliquer du texte",
+    "theme_color": "#4169e1",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "/assets/images/dupli.png",
+            "sizes": "500x500"
+        }
+    ]
+}
