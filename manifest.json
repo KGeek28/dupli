@@ -1,5 +1,5 @@
 {
-    "name": "Dupli - Outil de duplication de texte",
+    "name": "Dupli",
     "short_name": "Dupli",
     "start_url": "/",
     "display": "standalone",
@@ -10,7 +10,18 @@
     "icons": [
         {
             "src": "/assets/images/dupli.png",
-            "sizes": "500x500"
+            "sizes": "500x500",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/dupli192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/dupli312.png",
+            "sizes": "312x312",
+            "type": "image/png"
         }
     ]
 }

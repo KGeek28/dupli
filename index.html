@@ -1,59 +1,50 @@
 <!DOCTYPE html>
-<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Dupli - Outil de duplication de texte"/>
-    <meta property="og:title" content="Dupli - Outil de duplication de texte"/>
-    <meta name="description" content="Amusez-vous &agrave; dupliquer des textes, des emojis plus de 500 fois et envoyez votre long texte &agrave; vos amis !"/>
-    <meta property="og:description" content="Amusez-vous &agrave; dupliquer des textes, des emojis plus de 500 fois et envoyez votre long texte &agrave; vos amis !"/>
-    <meta property="og:image" content="/assets/images/dupli.png"/>
-    <meta property="og:image:type" content="image/png"/>
-    <meta property="og:image:alt" content="Dupli &eacute;crit en bleu avec une police d;&eacute;criture fantaisiste."/>
-    <meta name="theme-color" content="#4169e1"/>
-    <meta name="author" content="kellyguelce@hotmail.com"/>
-    <script src="/assets/js/alpine.min.js" defer></script>
-    <script src="/assets/js/index.js"></script>
-    <link rel="manifest" href="/manifest.json"/>
-    <link rel="stylesheet" href="/assets/styles/index.css"/>
-    <title>Dupli</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<meta name="title" content="Dupli - Outil de duplication de texte"/>
+	<script src="/assets/js/index.js"></script>
+	<link rel="stylesheet" href="/assets/styles/index.css"/>
+	<link rel="manifest" href="/manifest.json"/>
+	<title>Dupli</title>
 </head>
 <body>
-    <header>
-        <h1>Dupli</h1>
-    </header>
-    <main x-data="main">
-        <textarea id="texte" placeholder="Texte &agrave; dupliquer" @keyup='setTexte'></textarea>
-        <div class="param-box">
-            <div>
-                <input id="nbr" type="number" min="2" max="1000" placeholder="Nombre de duplications" @change='setNbr'/>
-            </div>
-            <div>
-                <input type="checkbox" id="wrap-check" @change="setLine"/>
-                <label for="wrap-check">Retour &agrave; la ligne</label>
-            </div>
-        </div>
-        <div class="btn-box">
-            <button @click="reset">Effacer</button>
-            <button class="dupli" @click="dupli">Dupliquer</button>
-        </div>
-    </main>
-    <div class="loading">
-        <div class="container"></div>
-    </div>
-    <div class="alert">
-        <div class="display"></div>
-        <button class="close-alert" onclick="closeAlert()">x</button>
-    </div>
+	<div class="loader">
+		<div class="container">
+			<span class="icon"></span>
+			<span class="txt"></span>
+		</div>
+	</div>
+	<header>
+		<div class="logo-box">
+			<img src="/assets/images/dupli192.png"/>
+		</div>
+		<nav>
+			<ul>
+				<li>
+					<a href="/guide">Guide</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<form id="dupliForm">
+			<div class="txtarea-container">
+				<textarea placeholder="Texte &agrave; dupliquer (100 caract&egrave;res max.)..." autofocus></textarea>
+			</div>
+
+			<div class="param-container">
+				<input type="number" placeholder="Nombre de duplications" class="nbr" min="2" max="500" required/>
+				<div>
+					<input type="checkbox" id="newLine"/>
+					<label for="newLine">Retour &agrave; la ligne</label>
+				</div>
+			</div>
+			
+			<div class="btn-box">
+				<input type="reset" value="Effacer"/>
+				<input type="submit" value="Dupliquer"/>
+			</div>
+		</form>
+	</main>
 </body>
-<script>
-    if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/serviceWorker.js', { scope: '/' }).then(reg => {
-            console.log("Registered")
-        }).catch(err => {
-            console.error(err)
-        })
-    }
-</script>
-</html>
